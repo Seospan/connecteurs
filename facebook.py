@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # https://developers.facebook.com/docs/marketing-api/insights-api/getting-started/v2.8
+# https://developers.facebook.com/docs/marketing-api/sdks
 
 #Add to header of your file
 from facebookads.api import FacebookAdsApi
@@ -12,7 +14,8 @@ from facebookads.objects import AdUser, Campaign, AdAccount
 # VILLAGEMAP
 my_app_id = '218109678382842'
 my_app_secret = '98ede9f8eabff3b486f53274e78f1ef5'
-my_access_token = 'EAADGXp3m7voBADS07Q9HANwXa5r9bxFSfQDN8fNP48mS3BQKqyNMBAHZC4O39x2mmiBESlM4ufZBfoDZCQT2z2PSy0v66ZA0SoOEGNWgnH50u79PH5fZC1jJTMVDEvvbviV1QWULOupDfOZBHKdSO7wRmMZAuxTN6agJaq1vMBRZB8tHZA7K4efTPPlhVyZAxnVZCgZD'
+# my_access_token = 'EAADGXp3m7voBADS07Q9HANwXa5r9bxFSfQDN8fNP48mS3BQKqyNMBAHZC4O39x2mmiBESlM4ufZBfoDZCQT2z2PSy0v66ZA0SoOEGNWgnH50u79PH5fZC1jJTMVDEvvbviV1QWULOupDfOZBHKdSO7wRmMZAuxTN6agJaq1vMBRZB8tHZA7K4efTPPlhVyZAxnVZCgZD'
+my_access_token = 'EAADGXp3m7voBABmZBPmOYGTpu2F8XBERWUUxnN1adEhozMdAFFNNEqtG0PoDH5hVxBZBJGRqwFgiNJNjZBZBqiJkBsmJWHaZBsJfryK0SRZByg0332PPYLCZByHq3ExZBhZAjG5HjGYwyOvX804ogPd9ZBfNXX0cZBst3ouJsHZAjs03q8snmOyMyRRepPlM5lkxazUZD'
 
 # SOIREE GEEK
 #my_app_id = '225503937640668'

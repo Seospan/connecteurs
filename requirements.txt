@@ -1,0 +1,4 @@
+pyOpenSSL
+googleads
+google-api-python-client
+facebookads

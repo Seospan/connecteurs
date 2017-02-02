@@ -1,8 +1,9 @@
-# https://developers.google.com/analytics/devguides/reporting/core/v3/quickstart/service-py
+#!/usr/bin/python
+#  https://developers.google.com/analytics/devguides/reporting/core/v3/quickstart/service-py
 
 import argparse
 
-from apiclient.discovery import build
+from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
 import httplib2
@@ -68,21 +69,21 @@ def get_first_profile_id(service):
   return None
 
 
-def get_results(service, profile_id):
+def get_results(service, profile_id, metrics):
   # Use the Analytics Service Object to query the Core Reporting API
   # for the number of sessions within the past seven days.
   return service.data().ga().get(
       ids='ga:' + profile_id,
       start_date='7daysAgo',
       end_date='today',
-      metrics='ga:sessions').execute()
+      metrics=metrics).execute()
 
 
-def print_results(results):
+def print_results(results, metricname):
   # Print data nicely for the user.
   if results:
     print('View (Profile): %s' % results.get('profileInfo').get('profileName'))
-    print('Total Sessions: %s' % results.get('rows')[0][0])
+    print('Total for metric %s : %s' %( metricname, results.get('rows')[0][0]) )
 
   else:
     print('No results found')
@@ -95,13 +96,14 @@ def main():
   # Use the developer console and replace the values with your
   # service account email and relative location of your key file.
   service_account_email = 'test-adxp@soiree-geek.iam.gserviceaccount.com'
-  key_file_location = 'SoireeGeek-5d32b3e97e44.p12'
+  key_file_location = 'lib/ganalytics/SoireeGeek-5d32b3e97e44.p12'
 
   # Authenticate and construct service.
   service = get_service('analytics', 'v3', scope, key_file_location,
     service_account_email)
   profile = get_first_profile_id(service)
-  print_results(get_results(service, profile))
+  print_results(get_results(service, profile, "ga:sessions"), "sessions")
+  print_results(get_results(service, profile, "ga:users"), "users")
 
 
 if __name__ == '__main__':
